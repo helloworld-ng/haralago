@@ -20,14 +20,21 @@ gulp.task('js', function() {
         .pipe(connect.reload());
 });
 
+gulp.task('css', function() {
+    gulp.src('css/*.css')
+        .pipe(connect.reload());
+});
+
 /* *************
     WATCH
 ************* */
 
-var jsFiles = ['*.js'];
+var jsFiles = ['*.js', 'js/*js'];
+var cssFiles = ['css/*.css'];
 
 gulp.task('watch', function() {
     gulp.watch(jsFiles, ['js']);
+    gulp.watch(cssFiles, ['css']);
     gulp.watch(htmlFiles, ['html']);
 });
 

@@ -3279,7 +3279,7 @@ body {
   align-items: center;
 }
 .navigation__content {
-  width: 570px;
+  width: 600px;
 }
 @media all and (min-width: 320px) and (max-width: 959px) {
   .navigation__content {
@@ -3473,7 +3473,7 @@ body {
   }
 }
 .container {
-  width: 570px;
+  width: 600px;
   margin: 0 auto;
   position: relative;
   max-width: 100%;
@@ -3504,7 +3504,7 @@ body {
 .hero__header--alt {
   margin-bottom: 80px;
   line-height: 1.4;
-  font-size: 1.6em;
+  font-size: 1.5em;
 }
 @media all and (min-width: 320px) and (max-width: 1024px) {
   .hero__header {
@@ -3792,6 +3792,28 @@ body {
     display: none;
   }
 }
+.service-icon {
+  display: block;
+}
+.service-icon__svg {
+  margin-bottom: 30px;
+  width: 40px;
+  filter: gray;
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+.service-icon__text {
+  color: #A4A4A4;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+.service-icon:hover .service-icon__svg {
+  -webkit-filter: grayscale(0);
+  filter: none;
+  opacity: 1;
+}
 .service-slider {
   margin-top: -140px;
 }
@@ -3809,7 +3831,7 @@ body {
 }
 .service-slider__controls {
   position: absolute;
-  width: 570px;
+  width: 600px;
   bottom: 15%;
   left: 50%;
   transform: translateX(-50%);
