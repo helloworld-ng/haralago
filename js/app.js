@@ -12,7 +12,8 @@ window.onload = function() {
                 el: $('.entrance-scene__wrap'),
                 opacity: [0, 1],
                 translateY: ["100%", 0],
-                duration: 1500,
+                duration: 1000,
+                delay: 1000,
                 easing: "easeInOutCubic"
             });
 
@@ -20,26 +21,28 @@ window.onload = function() {
 
             function animateEntranceScenes() {
                 var step = 0;
+                var stepCount = 4;
+                var stepMove = 100 / stepCount;
                 var from, to;
 
                 var loop = setInterval(function() {
-                    from = (step * -20) + "%";
-                    to = ((step * -20) - 20) + "%";
+                    from = (step * -stepMove) + "%";
+                    to = ((step * -stepMove) - stepMove) + "%";
 
                     animate({
                         el: $('.entrance-slider__content'),
                         translateY: [from, to],
                         duration: 1000,
-                        easing: "easeInOutBack"
+                        easing: "easeInOutExpo"
                     });
 
                     step++;
 
-                    if (step == 5) {
+                    if (step == stepCount) {
                         window.clearInterval(loop);
                         entranceScenes[1].play();
                     }
-                }, 2000);
+                }, 3000);
             }
         }
     }, {
@@ -54,36 +57,6 @@ window.onload = function() {
                 });
         }
     }]
-
-
-    if (isMobile.phone) {
-        $('.loader').remove();
-        $('.entrance-scene').remove();
-        $('#intro, #navigation, .team, #recruitment, #main, .next-arrow').removeAttr("style");
-        $('#logo').addClass('logo--mobile').css({ opacity: 1 });
-        $('.header-navigation-open').click(function() {
-            $('.navigation').addClass('navigation--visible');
-        });
-        $('.navigation-close').click(function() {
-            $('.navigation').removeClass('navigation--visible');
-        });
-        // Smooth scroll
-        $('.navigation__link').on('click', function(e) {
-            e.preventDefault();
-            $('.navigation').removeClass('navigation--visible');
-            var id = $(this).attr('href');
-            var pos = $(id).offset().top - 100;
-            $('body, html').animate({ scrollTop: pos });
-        });
-    } else {
-        $('.loader').remove();
-        $('.entrance-scene').show();
-        entranceScenes[0].play();
-        $('#skip-entrance').click(function() {
-            $("#logo").addClass('logo--active').animate({ opacity: 1, left: '100px' }, 1500, "easeOutExpo");
-            loadMainPage();
-        });
-    }
 
     var iconPositionSet = false;
 
@@ -100,27 +73,7 @@ window.onload = function() {
     }
 
     var pageLoaded;
-
-    function loadMainPage() {
-        if (pageLoaded) return;
-
-        $('.entrance-scene').remove();
-        $('#main').show();
-
-        setTimeout(function() {
-            $(".navigation").show();
-        }, 500);
-
-        setTimeout(function() {
-            pageEntranceAnimations.start();
-        }, 1000);
-
-        setupOnePageScroll();
-        setupNavigation();
-        pageLoaded = true;
-    }
-
-    var sections = ['about', 'services', 'servicesWeOffer', 'team', 'contact', 'apply', 'footer'];
+    var sections = ['services', 'servicesOverview', 'servicesBreakdown', 'servicesTestimonial', 'about', 'team', 'contact', 'apply', 'footer'];
 
     function setupOnePageScroll() {
         var currentIndex = 1;
@@ -146,7 +99,7 @@ window.onload = function() {
 
     function setupNavigation() {
         // Navigation click
-        $('.navigation__link').click(function(e) {
+        $('[data-section]').click(function(e) {
             e.preventDefault();
             var index = $(this).data('section');
             $("#main").moveTo(index);
@@ -154,7 +107,16 @@ window.onload = function() {
     }
 
     function updateNavigation(index) {
-        var navLink = $('.navigation__link[data-section="' + (index == 3 ? 2 : index) + '"]');
+        var navIndex;
+        var services = [1, 2, 3, 4];
+
+        if (services.indexOf(index) > -1) {
+            navIndex = 1;
+        } else {
+            navIndex = index;
+        }
+
+        var navLink = $('.navigation__link[data-section="' + navIndex + '"]');
         if (navLink) {
             $('.navigation__link').removeClass('navigation__link--active');
             navLink.addClass('navigation__link--active');
@@ -169,13 +131,14 @@ window.onload = function() {
         return {
             start: function() {
                 $('#intro').show();
-                $('#about').find('.section-label').show();
                 setTimeout(function() {
                     $('.next-arrow').show();
-                }, 1500);
+                    $("#navigation").addClass('animated time-1s fadeInUpSmall').show();
+                }, 1000);
             },
-            about: function() {},
-            services: function() {
+            services: function() {},
+            servicesOverview: function() {},
+            servicesBreakdown: function() {
                 function setActive(index) {
                     $('.service-slider__count span').text(index + 1);
                     $('.service-slide').removeClass('service-slide--active');
@@ -196,9 +159,10 @@ window.onload = function() {
                     setActive($(this).index());
                 });
             },
-            servicesWeOffer: function() {
-                $('#services-message').show();
+            servicesTestimonial: function() {
+                // $('#services-message').show();
             },
+            about: function() {},
             team: function() {
                 $('.team').show();
             },
@@ -217,14 +181,16 @@ window.onload = function() {
                 $('#header').attr('class', 'header');
                 $('#pagination').attr('class', 'hidden');
             },
-            services: function(direction) {
+            services: function() {},
+            servicesOverview: function() {},
+            servicesBreakdown: function(direction) {
                 $('#header').attr('class', 'header');
                 $('#pagination').attr('class', 'pagination');
             },
-            servicesWeOffer: function(direction) {
-                if (direction == 'up') $('#header').addClass('header--remove-delay');
-                $('#header').removeClass('header--green').addClass('header--blue');
-                $('#pagination').addClass('pagination--white');
+            servicesTestimonial: function(direction) {
+                // if (direction == 'up') $('#header').addClass('header--remove-delay');
+                // $('#header').removeClass('header--green').addClass('header--blue');
+                // $('#pagination').addClass('pagination--white');
             },
             team: function(direction) {
                 $('#header').attr('class', 'header');
@@ -246,4 +212,45 @@ window.onload = function() {
             }
         }
     })();
+
+    function loadMainPage() {
+        if (pageLoaded) return;
+
+        $('.entrance-scene').remove();
+        $('#main').show();
+        
+        pageEntranceAnimations.start();
+        setupOnePageScroll();
+        setupNavigation();
+        pageLoaded = true;
+    }
+
+    if (isMobile.phone) {
+        $('.loader').remove();
+        $('.entrance-scene').remove();
+        $('#intro, #navigation, .team, #recruitment, #main, .next-arrow').removeAttr("style");
+        $('#logo').addClass('logo--mobile').css({ opacity: 1 });
+        $('.header-navigation-open').click(function() {
+            $('.navigation').addClass('navigation--visible');
+        });
+        $('.navigation-close').click(function() {
+            $('.navigation').removeClass('navigation--visible');
+        });
+        // Smooth scroll
+        $('.navigation__link').on('click', function(e) {
+            e.preventDefault();
+            $('.navigation').removeClass('navigation--visible');
+            var id = $(this).attr('href');
+            var pos = $(id).offset().top - 100;
+            $('body, html').animate({ scrollTop: pos });
+        });
+    } else {
+        $('.loader').remove();
+        // $('.entrance-scene').show();
+        // entranceScenes[0].play();
+        // $('#skip-entrance').click(function() {
+            $("#logo").addClass('logo--active').animate({ opacity: 1, left: '100px' }, 1500, "easeOutExpo");
+            loadMainPage();
+        // });
+    }
 };
