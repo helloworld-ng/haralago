@@ -14,6 +14,8 @@ var Services = (function(){
         $('.service-slider__control').on('mouseover', function () {
             setActive($(this).data('index'));
         });
+
+        setActive();
     }
     
     function setActive(index) {

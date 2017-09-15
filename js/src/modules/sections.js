@@ -6,6 +6,17 @@ var Sections = (function () {
         return {
             servicesBreakdown: function () {
                 Services.setActive();
+            },
+            servicesTestimonials: function() {
+                Testimonials.play();
+            }
+        }
+    })();
+    
+    var exits = (function () {
+        return {
+            servicesTestimonials: function() {
+                Testimonials.reset();
             }
         }
     })();
@@ -51,17 +62,22 @@ var Sections = (function () {
             });
         },
         transition: function (index) {
+            var fromSection = ids[current - 1];
             var toSection = ids[index - 1];
             var direction = index > current ? "down" : "up";
+            
             setHeaderColor(toSection, direction);
             setPagination(toSection, index);
+            
+            var exitFunction = exits[fromSection];
+            if (exitFunction) setTimeout(exitFunction, 500);
         },
         afterMove: function (index) {
             current = index;
             var toSection = ids[index - 1];
-            if (entrances[toSection]) {
-                entrances[toSection]();
-            }
+
+            var entranceFunction = entrances[toSection];
+            if (entranceFunction) entranceFunction();
         }
     }
 })();

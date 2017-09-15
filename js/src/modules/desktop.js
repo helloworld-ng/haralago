@@ -1,5 +1,6 @@
 var Desktop = (function () {
     var setup = false;
+    var lastSectionVisited, lastSectionExited = null;
 
     function setupOnePageScroll() {
         var currentIndex = 1;
@@ -10,9 +11,13 @@ var Desktop = (function () {
             pagination: false,
             loop: false,
             beforeMove: function (index) {
+                if (index == lastSectionExited) return;
+                lastSectionExited = index;
                 Sections.transition(index);
             },
             afterMove: function (index) {
+                if (index == lastSectionVisited) return;
+                lastSectionVisited = index;
                 Sections.afterMove(index);
             }
         });
@@ -26,6 +31,7 @@ var Desktop = (function () {
             Navigation.init();
             Services.init();
             Testimonials.init();
+            
             setupOnePageScroll();
             setup = true;
         }
