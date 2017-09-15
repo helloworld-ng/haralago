@@ -58,22 +58,6 @@ window.onload = function () {
         }
     }]
 
-    var iconPositionSet = false;
-
-    function calculateSliderIconPosition() {
-        if (iconPositionSet) return;
-
-        iconPositionSet = true;
-        var firstSlide = $('.service-slide').eq(0);
-        var iconFromNav = firstSlide.offset().top - 105;
-        var textFromNav = firstSlide.find('.service-slide__title').offset().top - 105;
-        var idealPosition = (textFromNav / 2) - 50;
-        var offset = idealPosition - iconFromNav - 20;
-        $('.service-slide__icon').css({
-            top: offset + "px"
-        });
-    }
-
     var pageLoaded;
     var sections = ['services', 'servicesOverview', 'servicesBreakdown', 'servicesTestimonial', 'about', 'team', 'contact', 'apply', 'footer'];
 
@@ -86,9 +70,9 @@ window.onload = function () {
             pagination: false,
             loop: false,
             beforeMove: function (index) {
-                var sectionName = sections[currentIndex - 1];
+                var toSection = sections[index - 1];
                 var direction = index > currentIndex ? "down" : "up";
-                pageExitAnimations[sectionName](direction);
+                setHeaderColor(toSection, direction);
                 updateNavigation(index);
             },
             afterMove: function (index) {
@@ -101,14 +85,14 @@ window.onload = function () {
 
     var activeService = 0;
     function setupNavigation() {
-        // Navigation click
         $('[data-section]').click(function (e) {
             e.preventDefault();
             var index = $(this).data('section');
             $("#main").moveTo(index);
         })
+    }
 
-        // Services click
+    function setupServices() {
         $('[data-service]').click(function (e) {
             e.preventDefault();
             activeService = $(this).data('service');
@@ -152,7 +136,7 @@ window.onload = function () {
             servicesBreakdown: function () {
                 function setActive(index) {
                     activeService = index;
-                    $('.service-slider__count span').text(index + 1);
+                    $('.service-slider__count span').text("0" + (index + 1));
                     $('.service-slide').removeClass('service-slide--active');
                     $('.service-slide').eq(index).addClass('service-slide--active');
                     $('.service-slider__control').removeClass('service-slider__control--active');
@@ -160,15 +144,14 @@ window.onload = function () {
                 }
 
                 setActive(activeService);
-                calculateSliderIconPosition();
                 $('.service-slider__control').unbind('click');
                 $('.service-slider__control').unbind('mouseover');
 
                 $('.service-slider__control').click(function () {
-                    setActive($(this).index());
+                    setActive($(this).data('index'));
                 });
                 $('.service-slider__control').on('mouseover', function () {
-                    setActive($(this).index());
+                    setActive($(this).data('index'));
                 });
             },
             servicesTestimonial: function () {
@@ -186,51 +169,20 @@ window.onload = function () {
         }
     })();
 
-    var pageExitAnimations = (function () {
-        return {
-            start: function () {},
-            services: function (direction) {
-                setTimeout(function () {
-                    $('#header').attr('class', 'header');
-                }, 400);
-            },
-            servicesOverview: function (direction) {
-                if (direction == 'up') {
-                    $('#header').addClass('header--remove-delay');
-                    $('#header').addClass('header--green');
-                    $('#pagination').attr('class', 'hidden');
-                }
-            },
-            servicesBreakdown: function (direction) {
-                $('#header').attr('class', 'header');
-                $('#pagination').attr('class', 'pagination');
-            },
-            servicesTestimonial: function (direction) {
-                // if (direction == 'up') $('#header').addClass('header--remove-delay');
-                // $('#header').removeClass('header--green').addClass('header--blue');
-                // $('#pagination').addClass('pagination--white');
-            },
-            about: function (direction) {},
-            team: function (direction) {
-                $('#header').attr('class', 'header');
-                $('#pagination').attr('class', 'pagination');
-            },
-            contact: function (direction) {
-                if (direction == 'up') $('#header').addClass('header--remove-delay');
-                $('#header').removeClass('header--blue').addClass('header--green');
-                $('#pagination').addClass('pagination--white');
-            },
-            apply: function (direction) {
-                $('#header').attr('class', 'header');
-                $('#pagination').attr('class', 'pagination');
-            },
-            footer: function (direction) {
-                if (direction == 'up') $('#header').addClass('header--remove-delay');
-                $('#header').removeClass('header--green').addClass('header--blue');
-                $('#pagination').addClass('pagination--white');
-            }
-        }
-    })();
+    function setHeaderColor(elementId, direction) {
+        var isGreen = $("#" + elementId).hasClass('section--green');
+        var isBlue = $("#" + elementId).hasClass('section--blue');
+
+        $('#header').attr('class', 'header');
+
+        if (direction == 'down') $('#header').addClass('header--add-delay');
+        if (isGreen) $('#header').addClass('header--green');
+        if (isBlue) $('#header').addClass('header--blue');
+    }
+
+    function setPagination(elementId, direction) {
+        $('#pagination').addClass('pagination--white');
+    }
 
     function loadMainPage() {
         if (pageLoaded) return;
@@ -241,23 +193,27 @@ window.onload = function () {
         pageEntranceAnimations.start();
         setupOnePageScroll();
         setupNavigation();
+        setupServices();
         pageLoaded = true;
     }
 
-    if (isMobile.phone) {
-        $('.loader').remove();
-        $('.entrance-scene').remove();
+    function resetDivsForMobile() {
         $('#intro, #navigation, .team, #recruitment, #main, .next-arrow').removeAttr("style");
         $('#logo').addClass('logo--mobile').css({
             opacity: 1
         });
+    }
+
+    function setupMobileNavigation() {
         $('.header-navigation-open').click(function () {
             $('.navigation').addClass('navigation--visible');
         });
         $('.navigation-close').click(function () {
             $('.navigation').removeClass('navigation--visible');
         });
-        // Smooth scroll
+    }
+
+    function setupSmoothScroll() {
         $('.navigation__link').on('click', function (e) {
             e.preventDefault();
             $('.navigation').removeClass('navigation--visible');
@@ -267,15 +223,26 @@ window.onload = function () {
                 scrollTop: pos
             });
         });
+    }
+
+    function animateLogoIn() {
+        $("#logo").addClass('logo--active').animate({
+            opacity: 1,
+            left: '100px'
+        }, 1500, "easeOutExpo");
+    }
+
+    if (isMobile.phone) {
+        $('.loader').remove();
+        $('.entrance-scene').remove();
+        resetDivsForMobile();
+        setupSmoothScroll();
     } else {
         $('.loader').remove();
         // $('.entrance-scene').show();
         // entranceScenes[0].play();
         // $('#skip-entrance').click(function() {
-        $("#logo").addClass('logo--active').animate({
-            opacity: 1,
-            left: '100px'
-        }, 1500, "easeOutExpo");
+        animateLogoIn();
         loadMainPage();
         // });
     }
