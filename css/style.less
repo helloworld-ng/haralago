@@ -111,11 +111,11 @@ button.button-as-link {
 @custom: ~"all and (min-width: 320px) and (max-width: 1024px)";
 @desktop: ~"all and (min-width: 960px)";
 @bigscreen: ~"all and (min-width: 640px)";
-@green: #3bb7a3;
-@light-green: #ccf3ed;
-@blue: #49C2C4;
-@light-blue: #afe8ea;
-@gray: #A4A4A4;
+@green: #38b8a3;
+@light-green: #b1dfd8;
+@blue: #2dcdcb;
+@light-blue: #81e1e0;
+@gray: #a8a8a8;
 body,
 html {
     padding: 0;
@@ -567,6 +567,9 @@ body {
     &__leading {
         color: @gray;
         font-size: 1.05em;
+        &--alt {
+            font-weight: 500;
+        }
         @media @mobile {
             color: white;
             font-size: 1.3em;
@@ -997,6 +1000,48 @@ body {
         &__body {
             font-size: 1em;
         }
+    }
+}
+
+.testimonial-slider {
+    position: relative;
+}
+
+.testimonial-slide {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(50px);
+    -webkit-transform: translateX(50px);
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    opacity: 0;
+    &--active {
+        opacity: 1;
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+    }
+    &--exiting {
+        opacity: 0;
+        transform: translateX(-50px) scale(0.8);
+        -webkit-transform: translateX(-50px) scale(0.8);
+    }
+    &__avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    &__text {
+        color: white;
+        display: flex;
+        padding: 0 20px;
+        justify-content: center;
+        flex-direction: column;
+    }
+    &__role {
+        margin-bottom: 5px;
     }
 }
 
