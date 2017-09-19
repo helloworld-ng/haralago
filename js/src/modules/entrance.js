@@ -12,7 +12,7 @@ var EntranceAnimation = (function () {
             var stepMove = 100 / stepCount;
             var from, to;
 
-            loop = setInterval(function () {
+            loop = requestInterval(function () {
                 from = (step * -stepMove) + "%";
                 to = ((step * -stepMove) - stepMove) + "%";
 
@@ -31,7 +31,7 @@ var EntranceAnimation = (function () {
         };
 
         function endLoop() {
-            window.clearInterval(loop);
+            window.clearRequestInterval(loop);
             $('.entrance-scene__skip, .entrance-scene__divider').addClass('animated fadeOut longer');
             if (callback) callback();
         }

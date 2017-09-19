@@ -120,7 +120,25 @@
                     "transition": "all " + settings.animationTime + "ms " + settings.easing
                 });
             }
-            $(this).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+
+            function whichTransitionEvent(){
+                var t;
+                var el = document.createElement('fakeelement');
+                var transitions = {
+                  'transition':'transitionend',
+                  'OTransition':'oTransitionEnd',
+                  'MozTransition':'transitionend',
+                  'WebkitTransition':'webkitTransitionEnd'
+                }
+            
+                for(t in transitions){
+                    if( el.style[t] !== undefined ){
+                        return transitions[t];
+                    }
+                }
+            }
+
+            $(this).one(whichTransitionEvent(), function(e) {
                 if (typeof settings.afterMove == 'function') settings.afterMove(index);
             });
         }

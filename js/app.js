@@ -1,6 +1,5 @@
 var Desktop = (function () {
     var setup = false;
-    var lastSectionVisited, lastSectionExited = null;
 
     function setupOnePageScroll() {
         var currentIndex = 1;
@@ -11,13 +10,9 @@ var Desktop = (function () {
             pagination: false,
             loop: false,
             beforeMove: function (index) {
-                if (index == lastSectionExited) return;
-                lastSectionExited = index;
                 Sections.transition(index);
             },
             afterMove: function (index) {
-                if (index == lastSectionVisited) return;
-                lastSectionVisited = index;
                 Sections.afterMove(index);
             }
         });
@@ -51,7 +46,7 @@ var EntranceAnimation = (function () {
             var stepMove = 100 / stepCount;
             var from, to;
 
-            loop = setInterval(function () {
+            loop = requestInterval(function () {
                 from = (step * -stepMove) + "%";
                 to = ((step * -stepMove) - stepMove) + "%";
 
@@ -70,7 +65,7 @@ var EntranceAnimation = (function () {
         };
 
         function endLoop() {
-            window.clearInterval(loop);
+            window.clearRequestInterval(loop);
             $('.entrance-scene__skip, .entrance-scene__divider').addClass('animated fadeOut longer');
             if (callback) callback();
         }
@@ -336,7 +331,7 @@ var Services = (function(){
     }
     
     function setActive(index) {
-        if (index) active = index;
+        if (index !== undefined) active = index;
     
         $('.service-slider__count span').text("0" + (active + 1));
         $('.service-slide').removeClass('service-slide--active');
@@ -351,9 +346,10 @@ var Services = (function(){
     }
 })();
 var Testimonials = (function(){
-    var currentSlide, lastIndex = 0;
-    var slides, loop = null;
-    var delay = 3000;
+    var currentSlideIndex = 0;
+    var lastIndex = 0;
+    var slides = null;
+    var loop = null;
 
     function hide(slide) {
         slide.addClass('testimonial-slide--exiting');
@@ -363,11 +359,12 @@ var Testimonials = (function(){
         }, 2000);
     }
 
-    function show(current) {
+    function show(slideIndex, callback) {
         var active = $('.testimonial-slide--active');
         if (active) hide(active);
 
-        slides.eq(current).show().addClass('testimonial-slide--active');
+        slides.eq(slideIndex).show().addClass('testimonial-slide--active');
+        callback();
     }
 
     function resetClasses() {
@@ -378,20 +375,21 @@ var Testimonials = (function(){
     return {
         init: function() {
             slides = $('.testimonial-slide');
-            lastIndex = slides.length;            
+            lastIndex = slides.length - 1;            
+            resetClasses();
         },
         play: function() {
-            loop = setInterval(function () {
-                currentSlide++;
-                if (currentSlide === lastIndex) currentSlide = 0;
-                show(currentSlide);
-            }, delay);
+            loop = window.requestInterval(function () {
+                var nextSlideIndex = (currentSlideIndex === lastIndex) ? 0 : currentSlideIndex + 1;
+                show(nextSlideIndex, function(){
+                    currentSlideIndex = nextSlideIndex;
+                });
+            }, 3000);
         },
         reset: function() {
-            console.log("reset")
-            window.clearInterval(loop);
+            window.clearRequestInterval(loop);
             loop = null;
-            currentSlide = 0;
+            currentSlideIndex = 0;
             resetClasses();
         }
     }

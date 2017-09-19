@@ -19,7 +19,7 @@ var Services = (function(){
     }
     
     function setActive(index) {
-        if (index) active = index;
+        if (index !== undefined) active = index;
     
         $('.service-slider__count span').text("0" + (active + 1));
         $('.service-slide').removeClass('service-slide--active');
