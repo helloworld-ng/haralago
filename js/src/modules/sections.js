@@ -9,6 +9,9 @@ var Sections = (function () {
             },
             servicesTestimonials: function() {
                 Testimonials.play();
+            },
+            aboutSlideshow: function() {
+                AboutSlideShow.play();
             }
         }
     })();
@@ -17,6 +20,9 @@ var Sections = (function () {
         return {
             servicesTestimonials: function() {
                 Testimonials.reset();
+            },
+            aboutSlideshow: function() {
+                AboutSlideShow.reset();
             }
         }
     })();
@@ -27,6 +33,7 @@ var Sections = (function () {
             div: div,
             isGreen: div.hasClass('section--green'),
             isBlue: div.hasClass('section--blue'),
+            isClear: div.hasClass('section--clear'),
             showPagination: div.is('[data-pagination]')
         }
         section.isColored = section.isGreen || section.isBlue;
@@ -40,6 +47,7 @@ var Sections = (function () {
         if (direction == 'down') $('#header').addClass('header--add-delay');
         if (section.isGreen) $('#header').addClass('header--green');
         if (section.isBlue) $('#header').addClass('header--blue');
+        if (section.isClear) $('#header').addClass('header--clear');
     }
 
     function setPagination(elementId, index) {

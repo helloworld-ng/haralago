@@ -103,9 +103,9 @@
             <div id="navigation" class="navigation__content" style="display: none">
                 <ul>
                     <li><a class="navigation__link navigation__link--active" data-section="1" href="#services">services</a></li>
-                    <li><a class="navigation__link" data-section="2" href="#about">about us</a></li>
-                    <li><a class="navigation__link" data-section="5" href="#contact">contact</a></li>
-                    <li><a class="navigation__link" data-section="6" href="#careers">careers</a></li>
+                    <li><a class="navigation__link" data-section="5" href="#about">about us</a></li>
+                    <li><a class="navigation__link" data-section="6" href="#contact">contact</a></li>
+                    <li><a class="navigation__link" data-section="7" href="#careers">careers</a></li>
                     <li><a class="navigation__link" href="#">blog</a></li>
                 </ul>
                 <a href="#" class="navigation-close"><img src="img/icons/close.svg" alt="Close"></a>
@@ -135,13 +135,14 @@
         <div class="pagination__dot"></div>
         <div class="pagination__dot"></div>
         <div class="pagination__dot"></div>
+        <div class="pagination__dot"></div>
     </div>
     <div id="main" style="display: none">
         <section id="services" class="section section--green">
             <div class="section-label">
                 <span class="section-label__line line-animated"></span>
             </div>
-            <div id="intro" class="hero animated time-1s fadeInUp">
+            <div id="intro" class="hero">
                 <div class="container container--padded animated time-1s fadeInUp">
                     <h1 class="hero__header hero__header--alt hero__white">We provide medical equipment maintenance and healthcare facilities management services.</h1>
                     <h3 class="hero__leading hero__white">At <b>Haralago</b>, we believe that non-clinical support functions are critical for creating a care environment
@@ -161,8 +162,8 @@
                 <span class="section-label__line line-animated"></span>
                 <span class="section-label__text">our <br> services</span>
             </div>
-            <div class="hero animated time-1s fadeInUp">
-                <div class="container container--padded">
+            <div class="hero">
+                <div class="container container--padded  animated time-1s fadeInUp">
                     <h1 class="hero__header hero__header--alt">We provide specialized support services that are vital for the smooth operation of the healthcare facilities.</h1>
                     <div class="grid grid--full">
                         <div class="grid-column grid-column--padless">
@@ -291,19 +292,34 @@
                 </div>
             </div>
         </section>
-        <section id="about" class="section section--about">
-            <div class="section-label" style="display: none">
+        <section id="about" class="section section--about" data-pagination>
+            <div class="section-label section-label--one-line">
                 <span class="section-label__line line-animated"></span>
-                <span class="section-label__text">about <br> us</span>
+                <span class="section-label__text">about us</span>
             </div>
-            <div class="section-title section-title--white">About Us</div>
-            <div id="intro" class="hero" style="display: none">
-                <div class="container container--padded">
-                    <h1 class="hero__header animated time-1s fadeInUp">haralago is a company that <br> provides non-clinical support services<br> to healthcare facilities</h1>
-                    <h3 class="hero__leading animated time-2s fadeInUp hidden-mobile">haralago's mission is to help our clients to deliver high quality care to their patients by relieving
-                        them of the burden of non-clinical operations</h3>
-                    <h3 class="hero__leading animated time-2s fadeInUp visible-mobile">Our mission is to take care of the needs of the clinical staff, so that the clinical staff can take care
-                        of the patient.</h3>
+            <div class="hero">
+                <div class="container container--padded animated time-1s fadeInUp">
+                    <h1 class="hero__header hero__header--alt">We are a multidisciplinary team of experts who are committed to quality and best practices. We are driven by the desire to partner with our clients to solve problems. We are invested in their success.</h1>
+                </div>
+            </div>
+        </section>
+        <section id="aboutSlideshow" class="section section--about section--clear" data-pagination>
+            <div class="about-slideshow">
+                <div class="about-slideshow__container">
+                    <div class="about-slideshow__image">
+                        <img src="img/about/default.jpg" alt="Energy Maintenance">
+                    </div>
+                    <div class="about-slideshow__image">
+                        <img src="img/about/alt.jpg" alt="Energy Maintenance">
+                    </div>
+                </div>
+                <div class="about-slideshow__message">
+                    <div class="hero">
+                        <div class="container container--padded animated time-1s fadeInUp">
+                            <h1 class="hero__prose">We understand the challenges that African healthcare practitioners face in delivering quality care to their patients while keeping their businesses afloat.</h1>
+                            <h1 class="hero__prose">We want to lighten the burden of non-clinical operations so that medical professionals can concentrate on providing the best care to their patients.</h1>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

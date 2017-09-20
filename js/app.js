@@ -1,3 +1,50 @@
+var AboutSlideShow = (function(){
+    var currentSlideIndex = 0;
+    var lastIndex = 0;
+    var slides = null;
+    var loop = null;
+
+    function hide(slide) {
+        setTimeout(function(){
+            slide.removeClass('about-slideshow__image--active');
+        }, 1000);
+    }
+
+    function show(slideIndex, callback) {
+        var active = $('.about-slideshow__image--active');
+        if (active) hide(active);
+
+        slides.eq(slideIndex).addClass('about-slideshow__image--active');
+        callback();
+    }
+
+    function resetClasses() {
+        slides.attr('class', 'about-slideshow__image');
+        slides.eq(0).show().addClass('about-slideshow__image--active');
+    }
+
+    return {
+        init: function() {
+            slides = $('.about-slideshow__image');
+            lastIndex = slides.length - 1;            
+            resetClasses();
+        },
+        play: function() {
+            loop = window.requestInterval(function () {
+                var nextSlideIndex = (currentSlideIndex === lastIndex) ? 0 : currentSlideIndex + 1;
+                show(nextSlideIndex, function(){
+                    currentSlideIndex = nextSlideIndex;
+                });
+            }, 3000);
+        },
+        reset: function() {
+            window.clearRequestInterval(loop);
+            loop = null;
+            currentSlideIndex = 0;
+            resetClasses();
+        }
+    }
+})();
 var Desktop = (function () {
     var setup = false;
 
@@ -26,6 +73,7 @@ var Desktop = (function () {
             Navigation.init();
             Services.init();
             Testimonials.init();
+            AboutSlideShow.init();
             
             setupOnePageScroll();
             setup = true;
@@ -178,12 +226,15 @@ var Mobile = (function () {
     }
 })();
 var Navigation = (function(){
-    function update(index) {
+    function setCurrentIndex(index) {
         var navIndex;
         var services = [1, 2, 3, 4];
+        var about = [5, 6];
     
         if (services.indexOf(index) > -1) {
             navIndex = 1;
+        } else if (about.indexOf(index) > -1) {
+            navIndex = 5;
         } else {
             navIndex = index;
         }
@@ -213,6 +264,7 @@ var Navigation = (function(){
             e.preventDefault();
             var index = $(this).data('section');
             $("#main").moveTo(index);
+            setCurrentIndex(index);
         })
     }
 
@@ -224,7 +276,7 @@ var Navigation = (function(){
                 setupDesktop();
             }
         },
-        update: update
+        update: setCurrentIndex
     }
 })();
 var Sections = (function () {
@@ -238,6 +290,9 @@ var Sections = (function () {
             },
             servicesTestimonials: function() {
                 Testimonials.play();
+            },
+            aboutSlideshow: function() {
+                AboutSlideShow.play();
             }
         }
     })();
@@ -246,6 +301,9 @@ var Sections = (function () {
         return {
             servicesTestimonials: function() {
                 Testimonials.reset();
+            },
+            aboutSlideshow: function() {
+                AboutSlideShow.reset();
             }
         }
     })();
@@ -256,6 +314,7 @@ var Sections = (function () {
             div: div,
             isGreen: div.hasClass('section--green'),
             isBlue: div.hasClass('section--blue'),
+            isClear: div.hasClass('section--clear'),
             showPagination: div.is('[data-pagination]')
         }
         section.isColored = section.isGreen || section.isBlue;
@@ -269,6 +328,7 @@ var Sections = (function () {
         if (direction == 'down') $('#header').addClass('header--add-delay');
         if (section.isGreen) $('#header').addClass('header--green');
         if (section.isBlue) $('#header').addClass('header--blue');
+        if (section.isClear) $('#header').addClass('header--clear');
     }
 
     function setPagination(elementId, index) {

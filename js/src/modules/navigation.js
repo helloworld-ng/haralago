@@ -1,10 +1,13 @@
 var Navigation = (function(){
-    function update(index) {
+    function setCurrentIndex(index) {
         var navIndex;
         var services = [1, 2, 3, 4];
+        var about = [5, 6];
     
         if (services.indexOf(index) > -1) {
             navIndex = 1;
+        } else if (about.indexOf(index) > -1) {
+            navIndex = 5;
         } else {
             navIndex = index;
         }
@@ -34,6 +37,7 @@ var Navigation = (function(){
             e.preventDefault();
             var index = $(this).data('section');
             $("#main").moveTo(index);
+            setCurrentIndex(index);
         })
     }
 
@@ -45,6 +49,6 @@ var Navigation = (function(){
                 setupDesktop();
             }
         },
-        update: update
+        update: setCurrentIndex
     }
 })();
