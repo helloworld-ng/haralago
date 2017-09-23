@@ -104,8 +104,8 @@
                 <ul>
                     <li><a class="navigation__link navigation__link--active" data-section="1" href="#services">services</a></li>
                     <li><a class="navigation__link" data-section="5" href="#about">about us</a></li>
-                    <li><a class="navigation__link" data-section="6" href="#contact">contact</a></li>
-                    <li><a class="navigation__link" data-section="7" href="#careers">careers</a></li>
+                    <li><a class="navigation__link" data-section="7" href="#contact">contact</a></li>
+                    <li><a class="navigation__link" data-section="8" href="#careers">careers</a></li>
                     <li><a class="navigation__link" href="#">blog</a></li>
                 </ul>
                 <a href="#" class="navigation-close"><img src="img/icons/close.svg" alt="Close"></a>
@@ -323,65 +323,34 @@
                 </div>
             </div>
         </section>
-        <section id="team" class="section section--team">
-            <div class="section-label">
-                <span class="section-label__line line-animated"></span>
-                <span class="section-label__text">our team</span>
-            </div>
-            <div class="section-title">Team</div>
-            <div class="team" style="display: none">
-                <div class="team-member">
-                    <div class="grid">
-                        <div class="grid-column grid-column--padless">
-                            <div class="team-member__image">
-                                <img src="img/team/mambi.jpg" class="animated time-1s fadeInUp" alt="Dr. Mambidzeni Madvizire">
-                            </div>
-                        </div>
-                        <div class="grid-column grid-column--padless">
-                            <div class="team-member__bio animated fadeInUp">
-                                <h3 class="team-member__name">Dr. Mambidzeni Madvizire</h3>
-                                <h4 class="team-member__role hidden-mobile">Founder & managing director</h4>
-                                <h4 class="team-member__role visible-mobile">FOUNDER & MD</h4>
-                                <p class="team-member__essay">Experienced in healthcare strategy and operations, medical devices, global health and human
-                                    centered design. MBA from Stanford University Graduate School of Business. Phd in Biomedical
-                                    Engineering from Mayo Clinic.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <section id="contact" class="section section--green">
             <div class="section-label">
                 <span class="section-label__line line-animated"></span>
                 <span class="section-label__text">contact</span>
             </div>
-            <div class="section-title section-title--white">Contact</div>
             <div id="contact-links" class="contact">
                 <div class="container container--padded">
-                    <div class="contact__intro">Call, send an email or contact us on social media. We’d love to hear from you.</div>
+                    <div class="contact__intro">Tell us about your needs.</div>
                     <div class="contact__wrap contact__wrap--left">
-                        <a class="contact__link hidden-mobile" href="#">facebook</a>
+                        <span class="contact__tel hidden-mobile">+234 908 723 0836</span>
                         <a class="contact__link visible-mobile" href="https://twitter.com/HaralagoLtd"><img src="img/social/twitter.svg" alt="Twitter"></a>
                     </div>
                     <div class="contact__wrap">
-                        <a class="contact__link hidden-mobile" href="https://twitter.com/HaralagoLtd">twitter</a>
+                        <a class="contact__link hidden-mobile" href="https://www.linkedin.com/company/haralago">linkedin</a>
                         <a class="contact__link visible-mobile" href="https://www.linkedin.com/company/haralago"><img src="img/social/linkedin.svg" alt="LinkedIn"></a>
                     </div>
-                    <div class="contact__wrap contact__wrap--left">
-                        <a class="contact__link hidden-mobile" href="https://www.linkedin.com/company/haralago">linkedin</a>
-                        <a class="contact__link visible-mobile" href="#"><img src="img/social/facebook.svg" alt="Facebook"></a>
-                    </div>
-                    <div class="contact__wrap">
-                        <span class="contact__tel hidden-mobile">+234 908 723 0836</span>
-                        <a class="contact__link visible-mobile" href="#"><img src="img/social/medium.svg" alt="Medium"></a>
+                    <div class="contact__wrap contact__wrap--left hidden-mobile">
+                        <a class="contact__link" href="mailto:services@haralago.com">services@haralago.com</a>
+                    </div>                    
+                    <div class="contact__wrap hidden-mobile">
+                        <a class="contact__link" href="https://twitter.com/HaralagoLtd">twitter</a>
                     </div>
                     <div class="contact__divider hidden-mobile"></div>
                     <div class="clear visible-mobile">
                         <span class="contact__tel">+234 908 723 0836</span>
                     </div>
                     <div class="clear">
-                        <a class="contact__link" href="#">services@haralago.com</a>
+                        <span class="contact__link">you can also join our <a href="#">mailing list</a></span>
                     </div>
                 </div>
             </div>
@@ -392,16 +361,16 @@
                 <span class="section-label__text">careers</span>
             </div>
             <div class="section-title">Careers</div>
-            <div id="recruitment" class="hero" style="display: none">
+            <div id="recruitment" class="hero">
                 <div class="container container--padded">
                     <div class="animated fadeInUp">
-                        <h3 class="hero__text">We are recruiting candidates who are passionate about healthcare service operations</h3>
-                        <h3 class="hero__text">Email your CV to <a href="#">careers@haralago.com</a> if you would like to be part of the team.</h3>
+                        <h3 class="hero__text">We are recruiting candidates who are passionate about healthcare operations</h3>
+                        <h3 class="hero__text">Reach out to us at <a href="mailto:careers@haralago.com">careers@haralago.com</a> if you are interested in joining the team.</h3>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="footer" class="section section--footer">
+        <section id="footer" class="section section--footer section--green">
             <div class="footer">
                 <div class="container container-padded">
                     <div class="grid grid--full">
@@ -416,11 +385,10 @@
                         <div class="grid-column">
                             <h3 class="footer__title">Services</h3>
                             <ul class="footer__list">
-                                <li>Equipment Maintenance</li>
-                                <li>Energy Solutions</li>
-                                <li>Leasing</li>
-                                <li>Infection Control</li>
-                                <li>Oxygen</li>
+                                <li><a href="#" data-section="3" data-service="0">Equipment Maintenance</a></li>
+                                <li><a href="#" data-section="3" data-service="1">Infection Control</a></li>
+                                <li><a href="#" data-section="3" data-service="2">Energy Solutions</a></li>
+                                <li><a href="#" data-section="3" data-service="3">Training & Advisory</a></li>
                             </ul>
                         </div>
                         <div class="grid-column grid-column--narrow">
@@ -441,6 +409,15 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="next-arrow--reversed">
+                <div class="next-arrow next-arrow--green">
+                    <a data-section="2" href="#">
+                        <div class="next-arrow__head"></div>
+                        <div class="next-arrow__tail"></div>
+                        <div class="next-arrow__cover"></div>
+                    </a>
                 </div>
             </div>
         </section>

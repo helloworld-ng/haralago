@@ -165,7 +165,7 @@ body {
         }
     }
     &--wider {
-        flex: 1.5;
+        flex: 1.3;
         @media @mobile {
             flex: 1;
         }
@@ -657,6 +657,13 @@ body {
         bottom: 0;
         z-index: 5;
     }
+    &--reversed {
+        transform: rotateX(180deg);
+        -webkit-transform: rotateX(180deg);
+        position: absolute;
+        bottom: 50%;
+        right: 10%;
+    }
     &--green {
         .next-arrow__head {
             border-color: white;
@@ -682,6 +689,22 @@ body {
         }
         to {
             -webkit-transform: translateY(50px);
+        }
+    }
+    @keyframes arrowTailReversed {
+        from {
+            transform: translateY(50px);
+        }
+        to {
+            transform: translateY(-50px);
+        }
+    }
+    @-webkit-keyframes arrowTailReversed {
+        from {
+            -webkit-transform: translateY(50px);
+        }
+        to {
+            -webkit-transform: translateY(-50px);
         }
     }
     @keyframes arrowBounce {
@@ -755,7 +778,7 @@ body {
         }
     }
     &--footer {
-        background: @blue;
+        background: @green;
         @media @mobile {
             background: white;
         }
@@ -1288,7 +1311,7 @@ body {
         }
     }
     &__wrap--left {
-        width: 250px;
+        width: 350px;
         clear: both;
         @media @mobile {
             width: 50%;
@@ -1303,10 +1326,10 @@ body {
         clear: both;
     }
     &__intro {
-        display: none;
-        font-size: 1.3em;
+        font-size: 1em;
+        font-weight: 500;
         line-height: 1.4em;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
         color: white;
         @media @mobile {
             display: block;
@@ -1365,7 +1388,7 @@ body {
         color: #555;
     }
     &__title {
-        font-size: 0.8em;
+        font-size: 0.9em;
         font-weight: normal;
         margin-bottom: 30px;
         @media @mobile {
@@ -1377,7 +1400,7 @@ body {
         }
     }
     &__list {
-        font-size: 0.8em;
+        font-size: 0.9em;
         li {
             margin-bottom: 5px;
         }
@@ -1394,7 +1417,7 @@ body {
         }
     }
     &__copyright {
-        font-size: 0.8em;
+        font-size: 0.9em;
         opacity: 0.5;
         margin-top: 30px;
     }
