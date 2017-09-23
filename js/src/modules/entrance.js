@@ -1,6 +1,6 @@
 var EntranceAnimation = (function () {
     var timer = null;
-    var stepDelay = 3000;
+    var stepDelay = 2000;
     var stepCount = 4;
 
     var player = (function () {
@@ -70,7 +70,7 @@ var EntranceAnimation = (function () {
     }
 
     function changeHeaderColor() {
-        $('#header').addClass('header--green');
+        $('#header').removeClass('header--loading').addClass('header--green');
     }
 
     function showNavigation() {

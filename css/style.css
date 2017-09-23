@@ -3142,6 +3142,9 @@ body {
   -webkit-transition-delay: 0.2s;
   border-bottom: solid 1px whitesmoke;
 }
+.header--loading {
+  border-bottom: none;
+}
 .header--add-delay {
   transition-delay: 0.5s;
   -webkit-transition-delay: 0.5s;
@@ -3273,7 +3276,6 @@ body {
   top: 50px;
   min-height: 55px;
   width: 100%;
-  border-bottom: solid 1px rgba(255, 255, 255, 0.2);
   z-index: 1000;
   left: 0;
   right: 0;
