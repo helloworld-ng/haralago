@@ -2,7 +2,7 @@ var Mobile = (function () {
     var isSetup = false;
 
     function resetDivs() {
-        $('.entrance-scene').remove();
+        $('.entrance-scene, .section--desktop').remove();
         $('#intro, #navigation, .team, #recruitment, #main, .next-arrow').removeAttr("style");
         $('#logo').addClass('logo--mobile').css({
             opacity: 1

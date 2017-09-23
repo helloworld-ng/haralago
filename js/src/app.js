@@ -8,4 +8,10 @@ window.onload = function () {
         EntranceAnimation.end();
         Desktop.init();
     }
+
+    NewsletterSubscribe.init();
+    $(window).bind('resize', function(e) {
+        $('body').css({opacity: 0});
+        this.location.reload(false); 
+    });
 };

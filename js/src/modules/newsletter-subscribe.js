@@ -1,5 +1,5 @@
 var NewsletterSubscribe = (function(){
-    var openButton, closeButton, subscribeButton, backgrounds, modal, form;
+    var openButtons, closeButton, subscribeButton, backgrounds, modal, form;
     var form = {
         name: null,
         email: null
@@ -71,7 +71,7 @@ var NewsletterSubscribe = (function(){
 
     return {
         init: function() {
-            openButton = $('#subscribeTrigger');
+            openButtons = $('.subscribeTrigger');
             closeButton = $('#subscribeClose');
             subscribeButton = $('#subscribe-button');
             backgrounds = $('section').find('.container');
@@ -79,8 +79,14 @@ var NewsletterSubscribe = (function(){
             form = $('#newsletterSubscribeForm');
             
             var self = this;
-            openButton.click(self.show);       
-            closeButton.click(self.hide);
+            openButtons.click(function(e){
+                e.preventDefault();
+                self.show();
+            });       
+            closeButton.click(function(e){
+                e.preventDefault();
+                self.hide();
+            });
 
             validate();
             onSubmit();

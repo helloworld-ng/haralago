@@ -138,7 +138,7 @@
         <div class="pagination__dot"></div>
     </div>
     <div id="main" style="display: none">
-        <section id="services" class="section section--green">
+        <section id="services" class="section section--green section--first">
             <div class="section-label">
                 <span class="section-label__line line-animated"></span>
             </div>
@@ -157,13 +157,14 @@
                 </a>
             </div>
         </section>
-        <section id="servicesOverview" class="section" data-pagination>
+        <section id="servicesOverview" class="section section--desktop" data-pagination>
             <div class="section-label">
                 <span class="section-label__line line-animated"></span>
                 <span class="section-label__text">our <br> services</span>
             </div>
+            <div class="section-title-mobile">Services</div>
             <div class="hero">
-                <div class="container container--padded  animated time-1s fadeInUp">
+                <div class="container container--padded animated time-1s fadeInUp">
                     <h1 class="hero__header hero__header--alt">We provide specialized support services that are vital for the smooth operation of the healthcare facilities.</h1>
                     <div class="grid grid--full">
                         <div class="grid-column grid-column--padless">
@@ -207,7 +208,12 @@
                 <span class="section-label__line line-animated"></span>
                 <span class="section-label__text">services <br> we offer</span>
             </div>
-            <div class="section-title">Services</div>
+            <div class="section-title-mobile">Services</div>
+            <div class="hero visible-mobile">
+                <div class="container container--padded">
+                    <h1 class="hero__header hero__header--alt">We provide specialized support services that are vital for the smooth operation of the healthcare facilities.</h1>
+                </div>
+            </div>
             <div class="service-slider">
                 <div class="container container--padded">
                     <div class="service-slider__count"><span>01</span> / 04</div>
@@ -217,29 +223,28 @@
                                 <img class="animated time-1s fadeInUpFull" src="img/services/equipment_maintenance.svg" alt="Service Icon">
                             </div>
                             <div class="service-slide__title animated time-1s fadeInUp">Equipment Maintenance</div>
-                            <div class="service-slide__body animated time-1s fadeInUp">We help you maximize your equipment uptime [through our maintenance and repair services].</div>
+                            <div class="service-slide__body animated time-1s fadeInUp">We help you maximize your equipment uptime through maintenance and repair services.</div>
                         </div>
                         <div class="service-slide">
                             <div class="service-slide__icon service-slide__icon--smaller">
                                 <img class="animated time-1s fadeInUpFull" src="img/services/infection_control.svg" alt="Service Icon">
                             </div>
                             <div class="service-slide__title animated time-1s fadeInUp">Infection Control</div>
-                            <div class="service-slide__body animated time-1s fadeInUp">We help you stay in control - our cleaning, laundry and CSSD services keep hospital acquired
-                                infections at bay.</div>
+                            <div class="service-slide__body animated time-1s fadeInUp">We help you keep hospital acquired infections at bay with our specialized cleaning services.</div>
                         </div>
                         <div class="service-slide">
                             <div class="service-slide__icon">
                                 <img class="animated time-1s fadeInUpFull" src="img/services/energy_solutions.svg" alt="Service Icon">
                             </div>
                             <div class="service-slide__title animated time-1s fadeInUp">Energy Solutions</div>
-                            <div class="service-slide__body animated time-1s fadeInUp">We help you plug into energy efficiency.</div>
+                            <div class="service-slide__body animated time-1s fadeInUp">We help you save money by plugging into energy efficiency and backup solutions.</div>
                         </div>
                         <div class="service-slide">
                             <div class="service-slide__icon">
                                 <img class="animated time-1s fadeInUpFull" src="img/services/training_and_advisory.svg" alt="Service Icon">
                             </div>
                             <div class="service-slide__title animated time-1s fadeInUp">Training and Advisory</div>
-                            <div class="service-slide__body animated time-1s fadeInUp">We offer user application medical equipment planning and procurement advisory services</div>
+                            <div class="service-slide__body animated time-1s fadeInUp">We offer user application medical equipment planning and procurement advisory services.</div>
                         </div>
                     </div>
                 </div>
@@ -261,7 +266,7 @@
                 </div>
             </div>
         </section>
-        <section id="servicesTestimonials" class="section section--blue" data-pagination>
+        <section id="servicesTestimonials" class="section section--blue section--desktop" data-pagination>
             <div class="section-label">
                 <span class="section-label__line line-animated"></span>
             </div>
@@ -292,18 +297,19 @@
                 </div>
             </div>
         </section>
-        <section id="about" class="section section--about" data-pagination>
+        <section id="about" class="section section--about section--blue--mobile" data-pagination>
             <div class="section-label section-label--one-line">
                 <span class="section-label__line line-animated"></span>
                 <span class="section-label__text">about us</span>
             </div>
+            <div class="section-title-mobile">About</div>
             <div class="hero">
                 <div class="container container--padded animated time-1s fadeInUp">
                     <h1 class="hero__header hero__header--alt">We are a multidisciplinary team of experts who are committed to quality and best practices. We are driven by the desire to partner with our clients to solve problems. We are invested in their success.</h1>
                 </div>
             </div>
         </section>
-        <section id="aboutSlideshow" class="section section--about section--clear" data-pagination>
+        <section id="aboutSlideshow" class="section section--about section--clear section--blue--mobile" data-pagination>
             <div class="about-slideshow">
                 <div class="about-slideshow__container">
                     <div class="about-slideshow__image">
@@ -322,16 +328,26 @@
                     </div>
                 </div>
             </div>
+            <div class="section-title-mobile">About Us</div>
+            <div class="about-slideshow-mobile">
+                <div class="about-slideshow__bg" style="background-image: url(/img/about/default-mobile.jpg)"></div>
+                <div class="hero">
+                    <div class="container container--padded">
+                        <h1 class="hero__prose">We understand the challenges that African healthcare practitioners face in delivering quality care to their patients while keeping their businesses afloat.</h1>
+                        <h1 class="hero__prose">We want to lighten the burden of non-clinical operations so that medical professionals can concentrate on providing the best care to their patients.</h1>
+                    </div>
+                </div>
+            </div>
         </section>
         <section id="contact" class="section section--green">
             <div class="section-label">
                 <span class="section-label__line line-animated"></span>
                 <span class="section-label__text">contact</span>
             </div>
-            <div class="section-title visible-mobile">Contact</div>
+            <div class="section-title-mobile">Contact</div>
             <div id="contact-links" class="contact">
                 <div class="container container--padded">
-                    <div class="contact__intro">Tell us about your needs.</div>
+                    <div class="contact__intro">Tell us about your needs. <span class="visible-mobile"> <br> or <a href="#" class="subscribeTrigger">join our mailing list</a></span></div>
                     <div class="contact__wrap contact__wrap--left">
                         <span class="contact__tel hidden-mobile">+234 908 723 0836</span>
                         <a class="contact__link visible-mobile" href="https://twitter.com/HaralagoLtd"><img src="img/social/twitter.svg" alt="Twitter"></a>
@@ -349,9 +365,10 @@
                     <div class="contact__divider hidden-mobile"></div>
                     <div class="clear visible-mobile">
                         <span class="contact__tel">+234 908 723 0836</span>
+                        <a class="contact__link" href="mailto:services@haralago.com">services@haralago.com</a>
                     </div>
-                    <div class="clear">
-                        <span class="contact__span">you can also join our <a href="#" id="subscribeTrigger">subscribe list</a></span>
+                    <div class="clear hidden-mobile">
+                        <span class="contact__span">you can also join our <a href="#" class="subscribeTrigger">subscribe list</a></span>
                     </div>
                 </div>
             </div>
@@ -361,7 +378,7 @@
                 <span class="section-label__line line-animated"></span>
                 <span class="section-label__text">careers</span>
             </div>
-            <div class="section-title">Careers</div>
+            <div class="section-title-mobile">Careers</div>
             <div id="recruitment" class="hero">
                 <div class="container container--padded">
                     <div class="animated fadeInUp">
@@ -394,17 +411,16 @@
                         </div>
                         <div class="grid-column grid-column--narrow">
                             <h3 class="footer__title">Social</h3>
-                            <ul class="footer__list footer__list--social">
+                            <ul class="footer__list">
                                 <li><a href="https://twitter.com/HaralagoLtd">Twitter</a></li>
                                 <li><a href="https://www.linkedin.com/company/haralago">Linkedin</a></li>
                                 <li><a href="">Facebook</a></li>
-                                <li><a href="">Medium</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="footer__copyright">
                         <div class="grid grid--full">
-                            <div class="grid-column">©2017 Haralago Ltd</div>
+                            <div class="grid-column">© Copyright 2017, Haralago Limited</div>
                             <div class="grid-column grid-column--copyright hidden-mobile">
                                 <a href="">Terms</a>
                             </div>
@@ -412,7 +428,7 @@
                     </div>
                 </div>
             </div>
-            <div class="next-arrow--reversed">
+            <div class="next-arrow--reversed hidden-mobile">
                 <div class="next-arrow next-arrow--green">
                     <a data-section="1" href="#">
                         <div class="next-arrow__head"></div>

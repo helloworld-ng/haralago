@@ -27,7 +27,6 @@ var Desktop = (function () {
             Services.init();
             Testimonials.init();
             AboutSlideShow.init();
-            NewsletterSubscribe.init();
             
             setupOnePageScroll();
             setup = true;

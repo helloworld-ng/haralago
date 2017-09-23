@@ -74,7 +74,6 @@ var Desktop = (function () {
             Services.init();
             Testimonials.init();
             AboutSlideShow.init();
-            NewsletterSubscribe.init();
             
             setupOnePageScroll();
             setup = true;
@@ -197,7 +196,7 @@ var Mobile = (function () {
     var isSetup = false;
 
     function resetDivs() {
-        $('.entrance-scene').remove();
+        $('.entrance-scene, .section--desktop').remove();
         $('#intro, #navigation, .team, #recruitment, #main, .next-arrow').removeAttr("style");
         $('#logo').addClass('logo--mobile').css({
             opacity: 1
@@ -281,7 +280,7 @@ var Navigation = (function(){
     }
 })();
 var NewsletterSubscribe = (function(){
-    var openButton, closeButton, subscribeButton, backgrounds, modal, form;
+    var openButtons, closeButton, subscribeButton, backgrounds, modal, form;
     var form = {
         name: null,
         email: null
@@ -353,7 +352,7 @@ var NewsletterSubscribe = (function(){
 
     return {
         init: function() {
-            openButton = $('#subscribeTrigger');
+            openButtons = $('.subscribeTrigger');
             closeButton = $('#subscribeClose');
             subscribeButton = $('#subscribe-button');
             backgrounds = $('section').find('.container');
@@ -361,8 +360,14 @@ var NewsletterSubscribe = (function(){
             form = $('#newsletterSubscribeForm');
             
             var self = this;
-            openButton.click(self.show);       
-            closeButton.click(self.hide);
+            openButtons.click(function(e){
+                e.preventDefault();
+                self.show();
+            });       
+            closeButton.click(function(e){
+                e.preventDefault();
+                self.hide();
+            });
 
             validate();
             onSubmit();
@@ -566,4 +571,10 @@ window.onload = function () {
         EntranceAnimation.end();
         Desktop.init();
     }
+
+    NewsletterSubscribe.init();
+    $(window).bind('resize', function(e) {
+        $('body').css({opacity: 0});
+        this.location.reload(false); 
+    });
 };
