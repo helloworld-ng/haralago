@@ -342,6 +342,7 @@ body {
     align-items: center;
     &__content {
         width: @content-width;
+        max-width: 100%;
     }
     @media @tablet {
         &__content {
@@ -387,8 +388,8 @@ body {
         @media @mobile {
             display: block;
             color: white;
-            border-bottom: solid 1px white;
-            padding: 15px 0;
+            border-bottom: solid 1px rgba(255, 255, 255, 0.6);
+            padding: 10px 0;
             text-transform: uppercase;
             font-weight: bold;
             &--borderless {
@@ -441,7 +442,7 @@ body {
         position: fixed;
         top: 0;
         bottom: 0;
-        background: @blue;
+        background: @green;
         z-index: 3000;
         width: 100%;
         display: none;
@@ -452,9 +453,10 @@ body {
             margin-top: 20%;
         }
         li {
-            display: block;
+            float: left;
+            width: 100%;
             padding: 0 50px;
-            font-size: 1.2em;
+            font-size: 1em;
             text-align: center;
         }
     }

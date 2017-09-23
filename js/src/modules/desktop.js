@@ -23,7 +23,6 @@ var Desktop = (function () {
             if (setup) return;
 
             Sections.init();
-            Navigation.init();
             Services.init();
             Testimonials.init();
             AboutSlideShow.init();

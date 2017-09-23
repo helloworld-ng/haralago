@@ -3283,6 +3283,7 @@ body {
 }
 .navigation__content {
   width: 600px;
+  max-width: 100%;
 }
 @media all and (min-width: 320px) and (max-width: 959px) {
   .navigation__content {
@@ -3331,8 +3332,8 @@ body {
   .navigation .navigation__link {
     display: block;
     color: white;
-    border-bottom: solid 1px white;
-    padding: 15px 0;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.6);
+    padding: 10px 0;
     text-transform: uppercase;
     font-weight: bold;
   }
@@ -3394,7 +3395,7 @@ body {
     position: fixed;
     top: 0;
     bottom: 0;
-    background: #2dcdcb;
+    background: #38b8a3;
     z-index: 3000;
     width: 100%;
     display: none;
@@ -3406,9 +3407,10 @@ body {
     margin-top: 20%;
   }
   .navigation li {
-    display: block;
+    float: left;
+    width: 100%;
     padding: 0 50px;
-    font-size: 1.2em;
+    font-size: 1em;
     text-align: center;
   }
 }

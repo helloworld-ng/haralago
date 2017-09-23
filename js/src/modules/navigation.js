@@ -24,13 +24,36 @@ var Navigation = (function(){
     }
     
     function setupMobile() {
-        $('.header-navigation-open').click(function () {
+        $('.header-navigation-open').click(function (e) {
+            e.preventDefault();
             $('.navigation').addClass('navigation--visible');
         });
-        $('.navigation-close').click(function () {
+        $('.navigation-close').click(function (e) {
+            e.preventDefault();
             $('.navigation').removeClass('navigation--visible');
         });
+
+        setupMobileNavigationClicks();
     }
+
+    function setupMobileNavigationClicks() {
+        $('.navigation__link').on('click', function (e) {
+            e.preventDefault();
+            $('.navigation').removeClass('navigation--visible');
+            var id = $(this).attr('href');
+            var isSubscribeLink = $(this).attr('data-subscribe') != undefined;
+            
+            if (id) {
+                var pos = $(id).offset().top - 100;
+                $('body, html').animate({
+                    scrollTop: pos
+                }, function(){
+                    if (isSubscribeLink) NewsletterSubscribe.show();
+                });
+            }
+        });
+    }
+
     
     function setupDesktop() {
         $('[data-section]').click(function (e) {

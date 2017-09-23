@@ -8,25 +8,12 @@ var Mobile = (function () {
             opacity: 1
         });
     }
-
-    function setupSmoothScroll() {
-        $('.navigation__link').on('click', function (e) {
-            e.preventDefault();
-            $('.navigation').removeClass('navigation--visible');
-            var id = $(this).attr('href');
-            var pos = $(id).offset().top - 100;
-            $('body, html').animate({
-                scrollTop: pos
-            });
-        });
-    }
-
+    
     return {
         init: function () {
             if (isSetup) return;
 
-            resetDivs();            
-            setupSmoothScroll();
+            resetDivs();
             isSetup = true;
         }
     }
