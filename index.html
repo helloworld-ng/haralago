@@ -328,6 +328,7 @@
                 <span class="section-label__line line-animated"></span>
                 <span class="section-label__text">contact</span>
             </div>
+            <div class="section-title visible-mobile">Contact</div>
             <div id="contact-links" class="contact">
                 <div class="container container--padded">
                     <div class="contact__intro">Tell us about your needs.</div>
@@ -350,7 +351,7 @@
                         <span class="contact__tel">+234 908 723 0836</span>
                     </div>
                     <div class="clear">
-                        <span class="contact__link">you can also join our <a href="#">mailing list</a></span>
+                        <span class="contact__span">you can also join our <a href="#" id="subscribeTrigger">subscribe list</a></span>
                     </div>
                 </div>
             </div>
@@ -413,7 +414,7 @@
             </div>
             <div class="next-arrow--reversed">
                 <div class="next-arrow next-arrow--green">
-                    <a data-section="2" href="#">
+                    <a data-section="1" href="#">
                         <div class="next-arrow__head"></div>
                         <div class="next-arrow__tail"></div>
                         <div class="next-arrow__cover"></div>
@@ -421,6 +422,28 @@
                 </div>
             </div>
         </section>
+    </div>
+    <div id="newsletterSubscribe" class="subscribe" style="display: none">
+        <div class="subscribe__container">
+            <a href="#" class="subscribe__close" id="subscribeClose">
+                <svg width="13" height="13" viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg"><title>close</title><path d="M.2 11.158L1.242 12.2 6.2 7.242l4.958 4.958 1.042-1.042L7.242 6.2 12.2 1.242 11.158.2 6.2 5.158 1.242.2.2 1.242 5.158 6.2" fill-rule="nonzero" fill="#CFCFCF"/></svg>
+            </a>
+            <div id="subscribe-default" class="subscribe__default">
+                <div class="subscribe__intro">Sign up for news and articles about healthcare operations and the business of healthcare</div>
+                <form class="subscribe__form" id="newsletterSubscribeForm">
+                    <input class="subscribe__input" name="name" type="text" placeholder="Full Name" id="subscribe-name" required>
+                    <input class="subscribe__input" name="email" type="email" placeholder="Email Address" id="subscribe-email" required>
+                    <button type="submit" class="subscribe__button" id="subscribe-button" disabled>Submit</button>
+                </form>
+            </div>
+            <div id="subscribe-success" class="subscribe__success" style="display: none">            
+                <div class="subscribe__success__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78.95475 51.83827"><defs><style>.cls-1 { fill: #38b8a3; }</style></defs><title>MessageAsset 1</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_3" data-name="Layer 3"><path class="cls-1" d="M78.95 38.307V3.634a16.907 16.907 0 0 0-3.28-.317h-.002v-.03a16.518 16.518 0 0 0-.32-3.252H.45C-.202-.168.065.55.007.945v50.84c-.018.063.04.05.086.05H78.87c.058.008.098 0 .08-.064V38.307zM65.107 6.597l-25.628 17.62-25.626-17.62zm7.283 38.676H6.57V9.553l30.126 20.713c1.398.762 2.795 2.754 4.192.944l3.25-2.235 4.192-2.88 8.383-5.765L72.39 9.553v28.753z"/><path class="cls-1" d="M23.256 32.797h-10.6a16.766 16.766 0 0 0-.32 3.308 16.517 16.517 0 0 0 .32 3.254H27.85a16.91 16.91 0 0 0 .32-3.31 16.622 16.622 0 0 0-.32-3.253z"/></g></g></svg>
+                </div>
+                <h3 class="subscribe__success__primary">Thank you!</h3>
+                <p class="subscribe__success__secondary">Please click on the link in the confirmation email we just sent you to verify your email address</p>
+            </div>
+        </div>
     </div>
 </body>
 

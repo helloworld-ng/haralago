@@ -116,6 +116,7 @@ button.button-as-link {
 @blue: #2dcdcb;
 @light-blue: #81e1e0;
 @gray: #a8a8a8;
+@darker-gray: #8e8e8e;
 body,
 html {
     padding: 0;
@@ -1289,6 +1290,7 @@ body {
 
 .contact {
     &__link,
+    &__span,
     &__tel {
         font-size: 2.5rem;
     }
@@ -1335,7 +1337,15 @@ body {
             display: block;
         }
     }
-    .contact__link {
+    &__span {        
+        color: #A1DED1;
+        display: inline-block;
+        position: relative;
+        a {
+            color: white;
+        }
+    }
+    &__link {
         color: #A1DED1;
         display: inline-block;
         position: relative;
@@ -1423,6 +1433,111 @@ body {
     }
     &__right {
         text-align: right;
+    }
+}
+
+.subscribe {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    &__container {        
+        position: absolute;
+        width: 300px;
+        padding: 40px;
+        border-radius: 3px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        background: white;
+        top: 50%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+    }
+    &__close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 20px;
+    }
+    &__intro {
+        text-align: center;
+        color: @gray;
+        font-size: 1em;
+        margin: 20px 0 40px;
+        line-height: 1.5em;
+    }
+    &__input {
+        border: solid 1px whitesmoke;
+        border-width: 0 0 1px;
+        display: block;
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+        text-shadow: center;
+        outline: none;
+        font-size: 1.1em;
+        font-family: inherit;
+        text-align: center;
+        font-weight: 300;
+        color: #777;
+        &:focus {
+            border-color: @green;
+        }
+        &::-webkit-input-placeholder {
+            color: #DDD;
+        }
+        &::-moz-placeholder {
+            color: #DDD;
+        }
+        &:-ms-input-placeholder {
+            color: #DDD;
+        }
+    }
+    &__button {
+        background: @green;
+        border: none;
+        border-radius: 3px;
+        height: 45px;
+        line-height: 45px;
+        width: 100%;
+        text-align: center;
+        color: white;
+        font-family: inherit;
+        margin-top: 30px;
+        font-size: 1em;
+        cursor: pointer;
+        outline: none;
+        &:focus, &:active {
+            outline: none;
+        }
+        &:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+    }
+    &__success {
+        text-align: center;
+        &__icon {
+            width: 50px;
+            display: inline-block;
+            margin: 30px 0;
+            svg {
+                width: 100%;
+            }
+        }
+        &__primary {
+            color: @darker-gray;
+            font-size: 1.3em;
+        }
+        &__secondary {
+            color: @gray;
+            font-size: 0.9em;
+        }
     }
 }
 
