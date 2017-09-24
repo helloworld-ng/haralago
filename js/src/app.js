@@ -9,9 +9,4 @@ window.onload = function () {
 
     Navigation.init();
     NewsletterSubscribe.init();
-
-    $(window).bind('resize', function(e) {
-        $('body').css({opacity: 0});
-        this.location.reload(false); 
-    });
 };
