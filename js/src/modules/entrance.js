@@ -76,8 +76,8 @@ var EntranceAnimation = (function () {
             el: $('#logo-wrap'),
             translateX: ["50%",newPosition],
             delay: 300,
-            easing: "easeInOutSine",
-            duration: "400",
+            easing: "easeOutExpo",
+            duration: "700",
             complete: function() {
                 showNavigation();
                 setTimeout(resetLogoStyles, 500);
@@ -95,11 +95,11 @@ var EntranceAnimation = (function () {
     }
 
     function removeEntranceScene() {
-        $('#entrance-header').remove();
-        $('#header, #main').show();
-        // $('#entrance-scene').fadeOut(function(){
-        //     $('#entrance-scene').remove();
-        // });
+        $('#entrance-header').fadeOut();
+        $('#entrance-scene').fadeOut(function(){
+            $('#entrance-scene, #entrance-header').remove();
+            $('#header, #main').show();
+        });
     }
 
     return {

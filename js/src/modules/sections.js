@@ -34,6 +34,7 @@ var Sections = (function () {
             isGreen: div.hasClass('section--green'),
             isBlue: div.hasClass('section--blue'),
             isBlueText: div.hasClass('section--blue-text'),
+            isGreenText: div.hasClass('section--green-text'),
             isClear: div.hasClass('section--clear'),
             showPagination: div.is('[data-pagination]')
         }
@@ -49,6 +50,7 @@ var Sections = (function () {
         if (section.isGreen) $('#header').addClass('header--green');
         if (section.isBlue) $('#header').addClass('header--blue');
         if (section.isBlueText) $('#header').addClass('header--blue-text');
+        if (section.isGreenText) $('#header').addClass('header--green-text');
         if (section.isClear) $('#header').addClass('header--clear');
     }
 

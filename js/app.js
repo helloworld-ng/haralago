@@ -157,8 +157,8 @@ var EntranceAnimation = (function () {
             el: $('#logo-wrap'),
             translateX: ["50%",newPosition],
             delay: 300,
-            easing: "easeInOutSine",
-            duration: "400",
+            easing: "easeOutExpo",
+            duration: "700",
             complete: function() {
                 showNavigation();
                 setTimeout(resetLogoStyles, 500);
@@ -176,11 +176,11 @@ var EntranceAnimation = (function () {
     }
 
     function removeEntranceScene() {
-        $('#entrance-header').remove();
-        $('#header, #main').show();
-        // $('#entrance-scene').fadeOut(function(){
-        //     $('#entrance-scene').remove();
-        // });
+        $('#entrance-header').fadeOut();
+        $('#entrance-scene').fadeOut(function(){
+            $('#entrance-scene, #entrance-header').remove();
+            $('#header, #main').show();
+        });
     }
 
     return {
@@ -424,32 +424,6 @@ var NewsletterSubscribe = (function(){
         }
     }
 })();
-function winSize() {
-    // returns an object with height and width of the window
-    var win_size = {};
-    if (self.innerHeight) {
-        win_size.height = self.innerHeight;
-        win_size.width = self.innerWidth;
-    } else if (document.documentElement && document.documentElement.clientHeight) {
-        win_size.height = document.documentElement.clientHeight;
-        win_size.width = document.documentElement.Width;
-    } else if (document.body) {
-        win_size.height = document.body.clientHeight;
-        win_size.width = document.body.clientWidth;
-    }
-    return win_size;
-}
-var win_size = winSize();
-
-// set indice "m" for mobile (max. 400px), "t" for tablet (max. 700px), "d" for desktop, according to window size
-var dev_i = (win_size.width < 400) ? 'm' : ((win_size.width < 700) ? 't' : 'd');
-
-// when Resize browser, check window-width; refresh if current device indice not initial device indice
-window.addEventListener('resize', function (e) {
-    var win_size2 = winSize();
-    var dev_i2 = (win_size2.width < 400) ? 'm' : ((win_size2.width < 700) ? 't' : 'd');
-    if (dev_i2 != dev_i) window.location.replace(window.location.href);
-}, false);
 var Sections = (function () {
     var current = 1;
     var ids = [];
@@ -486,6 +460,7 @@ var Sections = (function () {
             isGreen: div.hasClass('section--green'),
             isBlue: div.hasClass('section--blue'),
             isBlueText: div.hasClass('section--blue-text'),
+            isGreenText: div.hasClass('section--green-text'),
             isClear: div.hasClass('section--clear'),
             showPagination: div.is('[data-pagination]')
         }
@@ -501,6 +476,7 @@ var Sections = (function () {
         if (section.isGreen) $('#header').addClass('header--green');
         if (section.isBlue) $('#header').addClass('header--blue');
         if (section.isBlueText) $('#header').addClass('header--blue-text');
+        if (section.isGreenText) $('#header').addClass('header--green-text');
         if (section.isClear) $('#header').addClass('header--clear');
     }
 

@@ -3284,6 +3284,9 @@ body {
 .header--blue-text .logo.logo .logo__path {
   fill: #2dcdcb;
 }
+.header--green-text .logo.logo .logo__path {
+  fill: #38b8a3;
+}
 @media all and (min-width: 320px) and (max-width: 767px) {
   .logo {
     opacity: 1;
@@ -3633,10 +3636,9 @@ body {
 }
 @media all and (min-width: 320px) and (max-width: 767px) {
   .hero__prose {
-    font-size: 1.2em;
-  }
-  .section--clear .hero__prose {
     color: white;
+    margin-bottom: 50px;
+    font-size: 1.1em;
   }
 }
 .hero__white {
