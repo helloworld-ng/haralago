@@ -3370,6 +3370,7 @@ body {
     font-weight: bold;
   }
   .navigation .navigation__link--borderless {
+    color: #b1dfd8;
     border-bottom: 0;
   }
 }

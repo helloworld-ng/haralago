@@ -158,7 +158,7 @@ var EntranceAnimation = (function () {
             translateX: ["50%",newPosition],
             delay: 300,
             easing: "easeOutExpo",
-            duration: "700",
+            duration: "1500",
             complete: function() {
                 showNavigation();
                 setTimeout(resetLogoStyles, 500);
