@@ -41,14 +41,14 @@ var EntranceAnimation = (function () {
                 callback = cb;
 
                 animate({
-                    el: $('#logo'),
+                    el: $('#entrance-logo'),
                     opacity: [0, 1],
                     duration: 800,
                     easing: "easeInBack"
                 });
 
                 animate({
-                    el: $('.entrance-scene__wrap'),
+                    el: $('.entrance-scene__content'),
                     opacity: [0, 1],
                     translateY: ["100%", 0],
                     duration: 500,
@@ -62,15 +62,31 @@ var EntranceAnimation = (function () {
         }
     })();
 
-    function animateLogoIn() {
-        $("#logo").addClass('logo--active').animate({
-            opacity: 1,
-            left: '100px'
-        }, 1500, "easeOutExpo");
+    function calculatePercentageDistanceFromPixel(val) {
+        var pixelVal = val;
+        var windowWidth = $(window).width();
+        var percentVal = pixelVal / windowWidth * 100;
+        return percentVal + "%";
     }
 
-    function changeHeaderColor() {
-        $('#header').removeClass('header--loading').addClass('header--green');
+    function animateLogoToPosition() {
+        var newPosition = calculatePercentageDistanceFromPixel(100);
+
+        animate({
+            el: $('#logo-wrap'),
+            translateX: ["50%",newPosition],
+            delay: 300,
+            easing: "easeInOutSine",
+            duration: "400",
+            complete: function() {
+                showNavigation();
+                setTimeout(resetLogoStyles, 500);
+            }
+        });
+    }
+
+    function resetLogoStyles() {
+        $('#logo-wrap').attr('style', "").addClass('logo-wrap--active');
     }
 
     function showNavigation() {
@@ -79,8 +95,11 @@ var EntranceAnimation = (function () {
     }
 
     function removeEntranceScene() {
-        $('.entrance-scene').remove();
-        $('#main').show();
+        $('#entrance-header').remove();
+        $('#header, #main').show();
+        // $('#entrance-scene').fadeOut(function(){
+        //     $('#entrance-scene').remove();
+        // });
     }
 
     return {
@@ -103,10 +122,8 @@ var EntranceAnimation = (function () {
             return timer;
         },
         end: function () {
-            changeHeaderColor();
-            setTimeout(removeEntranceScene, 200);
-            setTimeout(animateLogoIn, 500);
-            setTimeout(showNavigation, 1000);
+            removeEntranceScene();
+            animateLogoToPosition();
         }
     }
 })();

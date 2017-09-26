@@ -3219,8 +3219,27 @@ body {
   text-align: center;
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
-  left: 50%;
-  z-index: 2000;
+}
+.logo-wrap {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(50%);
+  -webkit-transform: translateX(50%);
+}
+.logo-wrap--active {
+  transform: translateX(0);
+  -webkit-transform: translateX(0);
+  left: 100px;
+}
+@media all and (min-width: 320px) and (max-width: 767px) {
+  .logo-wrap {
+    transform: none;
+    -webkit-transform: none;
+    width: 50%;
+  }
 }
 .logo__svg {
   position: relative;
@@ -3261,6 +3280,9 @@ body {
   -webkit-transition: none;
   transition-delay: 0;
   -webkit-transition-delay: 0;
+}
+.header--blue-text .logo.logo .logo__path {
+  fill: #2dcdcb;
 }
 @media all and (min-width: 320px) and (max-width: 767px) {
   .logo {
@@ -3431,12 +3453,16 @@ body {
 }
 .entrance-scene__wrap {
   position: absolute;
+  left: 50%;
   top: 50%;
   transform: translateY(-50%) translateX(-50%);
   -webkit-transform: translateY(-50%) translateX(-50%);
-  width: 900px;
-  left: 50%;
   height: 200px;
+  width: 900px;
+}
+.entrance-scene__content {
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 .entrance-scene__divider {
@@ -3536,7 +3562,7 @@ body {
     margin-bottom: 30px;
   }
 }
-.section--white--mobile .hero__header--alt {
+.section--blue-text .hero__header--alt {
   color: #2dcdcb;
 }
 @media all and (min-width: 320px) and (max-width: 1024px) {
@@ -3609,7 +3635,7 @@ body {
   .hero__prose {
     font-size: 1.2em;
   }
-  .section--blue--mobile .hero__prose {
+  .section--clear .hero__prose {
     color: white;
   }
 }
@@ -3764,7 +3790,7 @@ body {
   }
 }
 @media all and (min-width: 320px) and (max-width: 767px) {
-  .section--white--mobile {
+  .section--blue-text {
     background: white;
   }
 }
@@ -3888,6 +3914,12 @@ body {
 }
 .section--green .section-label__text {
   background: #38b8a3;
+}
+.section--blue-text .section-label__line {
+  background: #2dcdcb;
+}
+.section--blue-text .section-label__text {
+  color: #2dcdcb;
 }
 .section-label--clear {
   top: 105px;
@@ -4254,6 +4286,7 @@ body {
   }
   .about-slideshow-mobile {
     display: block;
+    overflow: hidden;
   }
   .about-slideshow__bg {
     position: absolute;
@@ -4565,6 +4598,7 @@ body {
 }
 .footer__list li {
   margin-bottom: 5px;
+  color: #b1dfd8;
 }
 @media all and (min-width: 320px) and (max-width: 767px) {
   .footer__list {
@@ -4576,7 +4610,7 @@ body {
 .footer__copyright {
   font-size: 0.9em;
   opacity: 0.5;
-  margin-top: 30px;
+  margin-top: 80px;
 }
 @media all and (min-width: 320px) and (max-width: 767px) {
   .footer__copyright {

@@ -43,23 +43,26 @@ var Navigation = (function(){
     }
 
     function setupMobileNavigationClicks() {
-        $('a').on('click', function (e) {
+        $('.navigation__link').on('click', function (e) {
             e.preventDefault();
             $('.navigation').removeClass('navigation--visible');
-            var id = $(this).attr('href');
-            var isSubscribeLink = $(this).attr('data-subscribe') != undefined;
-            
-            if ($(id).offset()) {
-                var pos = $(id).offset().top - 100;
-                $('body, html').animate({
-                    scrollTop: pos
-                }, function(){
-                    if (isSubscribeLink) NewsletterSubscribe.show();
-                });
-            } else if (isSubscribeLink) {
-                NewsletterSubscribe.show();
-            }
         });
+
+        $('a').on('click', function (e) {
+            e.preventDefault();
+            var id = $(this).attr('href');            
+            if (!id || !$(id).offset()) return;
+
+            var pos = $(id).offset().top - 100;
+            $('body, html').animate({
+                scrollTop: pos
+            });
+        });
+
+        $('[data-subscribe]').on('click', function (e) {
+            e.preventDefault();
+            NewsletterSubscribe.show();
+        })
     }
 
     
