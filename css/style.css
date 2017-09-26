@@ -3921,9 +3921,6 @@ body {
 .section--blue-text .section-label__line {
   background: #2dcdcb;
 }
-.section--blue-text .section-label__text {
-  color: #2dcdcb;
-}
 .section-label--clear {
   top: 105px;
   display: none;
