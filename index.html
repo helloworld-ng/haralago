@@ -150,7 +150,7 @@
                 </div>
             </div>
             <div class="next-arrow next-arrow--green" style="display: none">
-                <a data-section="2" href="#">
+                <a data-section="2" href="#servicesBreakdown">
                     <div class="next-arrow__head"></div>
                     <div class="next-arrow__tail"></div>
                     <div class="next-arrow__cover"></div>
@@ -216,35 +216,35 @@
             </div>
             <div class="service-slider">
                 <div class="container container--padded">
-                    <div class="service-slider__count"><span>01</span> / 04</div>
+                    <div class="service-slider__count"><span>01</span> / <small>04</small></div>
                     <div class="service-slider__content">
                         <div class="service-slide">
                             <div class="service-slide__icon">
-                                <img class="animated time-1s fadeInUpFull" src="img/services/equipment_maintenance.svg" alt="Service Icon">
+                                <img class="animated fadeInUpFull" src="img/services/equipment_maintenance.svg" alt="Service Icon">
                             </div>
-                            <div class="service-slide__title animated time-1s fadeInUp">Equipment Maintenance</div>
-                            <div class="service-slide__body animated time-1s fadeInUp">We help you maximize your equipment uptime through maintenance and repair services.</div>
+                            <div class="service-slide__title animated fadeInUp">Equipment Maintenance</div>
+                            <div class="service-slide__body animated fadeInUp">We help you maximize your equipment uptime through maintenance and repair services.</div>
                         </div>
                         <div class="service-slide">
                             <div class="service-slide__icon service-slide__icon--smaller">
-                                <img class="animated time-1s fadeInUpFull" src="img/services/infection_control.svg" alt="Service Icon">
+                                <img class="animated fadeInUpFull" src="img/services/infection_control.svg" alt="Service Icon">
                             </div>
-                            <div class="service-slide__title animated time-1s fadeInUp">Infection Control</div>
-                            <div class="service-slide__body animated time-1s fadeInUp">We help you keep hospital acquired infections at bay with our specialized cleaning services.</div>
+                            <div class="service-slide__title animated fadeInUp">Infection Control</div>
+                            <div class="service-slide__body animated fadeInUp">We help you keep hospital acquired infections at bay with our specialized cleaning services.</div>
                         </div>
                         <div class="service-slide">
                             <div class="service-slide__icon">
-                                <img class="animated time-1s fadeInUpFull" src="img/services/energy_solutions.svg" alt="Service Icon">
+                                <img class="animated fadeInUpFull" src="img/services/energy_solutions.svg" alt="Service Icon">
                             </div>
-                            <div class="service-slide__title animated time-1s fadeInUp">Energy Solutions</div>
-                            <div class="service-slide__body animated time-1s fadeInUp">We help you save money by plugging into energy efficiency and backup solutions.</div>
+                            <div class="service-slide__title animated fadeInUp">Energy Solutions</div>
+                            <div class="service-slide__body animated fadeInUp">We help you save money by plugging into energy efficiency and backup solutions.</div>
                         </div>
                         <div class="service-slide">
                             <div class="service-slide__icon">
-                                <img class="animated time-1s fadeInUpFull" src="img/services/training_and_advisory.svg" alt="Service Icon">
+                                <img class="animated fadeInUpFull" src="img/services/training_and_advisory.svg" alt="Service Icon">
                             </div>
-                            <div class="service-slide__title animated time-1s fadeInUp">Training and Advisory</div>
-                            <div class="service-slide__body animated time-1s fadeInUp">We offer user application medical equipment planning and procurement advisory services.</div>
+                            <div class="service-slide__title animated fadeInUp">Training and Advisory</div>
+                            <div class="service-slide__body animated fadeInUp">We offer user application medical equipment planning and procurement advisory services.</div>
                         </div>
                     </div>
                 </div>
@@ -289,7 +289,7 @@
                                 <img src="img/testimonials/avatar.jpg" alt="Avatar">
                             </div>
                             <div class="testimonial-slide__text">
-                                <div class="testimonial-slide__role"><b>CEO, Helium Healthcare</b></div>
+                                <div class="testimonial-slide__role">CEO, Helium Healthcare</div>
                                 <div class="testimonial-slide__excerpt">"Haralago is such a brilliant solution"</div>
                             </div>
                         </div>
@@ -297,19 +297,23 @@
                 </div>
             </div>
         </section>
-        <section id="about" class="section section--about section--blue--mobile" data-pagination>
+        <section id="about" class="section section--about  section--white--mobile" data-pagination>
             <div class="section-label section-label--one-line">
                 <span class="section-label__line line-animated"></span>
                 <span class="section-label__text">about us</span>
             </div>
-            <div class="section-title-mobile">About</div>
+            <div class="section-title-mobile">About Us</div>
             <div class="hero">
                 <div class="container container--padded animated time-1s fadeInUp">
                     <h1 class="hero__header hero__header--alt">We are a multidisciplinary team of experts who are committed to quality and best practices. We are driven by the desire to partner with our clients to solve problems. We are invested in their success.</h1>
                 </div>
             </div>
         </section>
-        <section id="aboutSlideshow" class="section section--about section--clear section--blue--mobile" data-pagination>
+        <section id="aboutSlideshow" class="section section--about section--clear" data-pagination>
+            <div class="section-label section-label--one-line section-label--clear">
+                <span class="section-label__line line-animated"></span>
+                <span class="section-label__text">about us</span>
+            </div>
             <div class="about-slideshow">
                 <div class="about-slideshow__container">
                     <div class="about-slideshow__image">
@@ -328,7 +332,6 @@
                     </div>
                 </div>
             </div>
-            <div class="section-title-mobile">About Us</div>
             <div class="about-slideshow-mobile">
                 <div class="about-slideshow__bg" style="background-image: url(/img/about/default-mobile.jpg)"></div>
                 <div class="hero">
@@ -339,42 +342,60 @@
                 </div>
             </div>
         </section>
-        <section id="contact" class="section section--green">
-            <div class="section-label">
+        <section id="contact" class="section section--green" data-pagination>
+            <div class="section-label section-label--one-line">
                 <span class="section-label__line line-animated"></span>
                 <span class="section-label__text">contact</span>
             </div>
             <div class="section-title-mobile">Contact</div>
-            <div id="contact-links" class="contact">
+            <div id="contact-links" class="contact hidden-mobile">
                 <div class="container container--padded">
-                    <div class="contact__intro">Tell us about your needs. <span class="visible-mobile"> <br> or <a href="#" class="subscribeTrigger">join our mailing list</a></span></div>
+                    <div class="contact__intro">Tell us about your needs.</div>
                     <div class="contact__wrap contact__wrap--left">
-                        <span class="contact__tel hidden-mobile">+234 908 723 0836</span>
-                        <a class="contact__link visible-mobile" href="https://twitter.com/HaralagoLtd"><img src="img/social/twitter.svg" alt="Twitter"></a>
+                        <span class="contact__tel">+234 908 723 0836</span>
                     </div>
                     <div class="contact__wrap">
-                        <a class="contact__link hidden-mobile" href="https://www.linkedin.com/company/haralago">linkedin</a>
-                        <a class="contact__link visible-mobile" href="https://www.linkedin.com/company/haralago"><img src="img/social/linkedin.svg" alt="LinkedIn"></a>
+                        <a class="contact__link" href="https://www.linkedin.com/company/haralago">linkedin</a>
                     </div>
-                    <div class="contact__wrap contact__wrap--left hidden-mobile">
+                    <div class="contact__wrap contact__wrap--left">
                         <a class="contact__link" href="mailto:services@haralago.com">services@haralago.com</a>
                     </div>                    
-                    <div class="contact__wrap hidden-mobile">
+                    <div class="contact__wrap">
                         <a class="contact__link" href="https://twitter.com/HaralagoLtd">twitter</a>
                     </div>
-                    <div class="contact__divider hidden-mobile"></div>
-                    <div class="clear visible-mobile">
+                    <div class="contact__divider"></div>
+                    <div class="clear">
+                        <span class="contact__span">you can also <a href="#" class="subscribeTrigger">join our mailing list</a></span>
+                    </div>
+                </div>
+            </div>
+            <div id="contact-links" class="contact visible-mobile">
+                <div class="container container--padded">
+                    <div class="contact__intro">Tell us about your needs.</div>
+                    <div class="clear">
                         <span class="contact__tel">+234 908 723 0836</span>
                         <a class="contact__link" href="mailto:services@haralago.com">services@haralago.com</a>
                     </div>
-                    <div class="clear hidden-mobile">
-                        <span class="contact__span">you can also join our <a href="#" class="subscribeTrigger">subscribe list</a></span>
+                    <div class="contact__social">
+                        <div class="contact__wrap">
+                            <a class="contact__link" href="https://twitter.com/HaralagoLtd"><img src="img/social/twitter.svg" alt="Twitter"></a>
+                        </div>
+                        <div class="contact__wrap contact__wrap--center">
+                            <a class="contact__link" href="https://www.linkedin.com/company/haralago"><img src="img/social/linkedin.svg" alt="LinkedIn"></a>
+                        </div>
+                        <div class="contact__wrap contact__wrap--right">
+                            <a class="contact__link" href="#"><img src="img/social/medium.svg" alt="Medium"></a>
+                        </div>
+                        <div class="contact__divider"></div>  
+                    </div>                  
+                    <div class="contact__button__wrap">
+                        <a class="contact__button" href="#" class="subscribeTrigger" data-subscribe>Join our mailing list</a>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="careers" class="section section--careers">
-            <div class="section-label">
+        <section id="careers" class="section section--careers" data-pagination>
+            <div class="section-label section-label--one-line">
                 <span class="section-label__line line-animated"></span>
                 <span class="section-label__text">careers</span>
             </div>
@@ -454,7 +475,8 @@
             </div>
             <div id="subscribe-success" class="subscribe__success" style="display: none">            
                 <div class="subscribe__success__icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78.95475 51.83827"><defs><style>.cls-1 { fill: #38b8a3; }</style></defs><title>MessageAsset 1</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_3" data-name="Layer 3"><path class="cls-1" d="M78.95 38.307V3.634a16.907 16.907 0 0 0-3.28-.317h-.002v-.03a16.518 16.518 0 0 0-.32-3.252H.45C-.202-.168.065.55.007.945v50.84c-.018.063.04.05.086.05H78.87c.058.008.098 0 .08-.064V38.307zM65.107 6.597l-25.628 17.62-25.626-17.62zm7.283 38.676H6.57V9.553l30.126 20.713c1.398.762 2.795 2.754 4.192.944l3.25-2.235 4.192-2.88 8.383-5.765L72.39 9.553v28.753z"/><path class="cls-1" d="M23.256 32.797h-10.6a16.766 16.766 0 0 0-.32 3.308 16.517 16.517 0 0 0 .32 3.254H27.85a16.91 16.91 0 0 0 .32-3.31 16.622 16.622 0 0 0-.32-3.253z"/></g></g></svg>
+                    <div class="subscribe__success__ticker"><div></div></div>
+                    <svg width="79" height="52" viewBox="0 0 79 52" xmlns="http://www.w3.org/2000/svg"><title>Message Icon</title><path d="M78.95 38.307V3.634c-1.08-.212-2.18-.32-3.28-.317h-.002v-.03c.002-1.09-.105-2.18-.32-3.252H.45C-.202-.168.065.55.007.945v50.84c-.018.063.04.05.086.05H78.87c.058.008.098 0 .08-.064V38.307zM65.107 6.597l-25.628 17.62-25.626-17.62h51.254zm7.283 38.676H6.57V9.553l30.126 20.713c1.398.762 2.795 2.754 4.192.944l3.25-2.235 4.192-2.88 8.383-5.765L72.39 9.553v35.719z" fill-rule="nonzero" fill="#38B8A3"/></svg>
                 </div>
                 <h3 class="subscribe__success__primary">Thank you!</h3>
                 <p class="subscribe__success__secondary">Please click on the link in the confirmation email we just sent you to verify your email address</p>

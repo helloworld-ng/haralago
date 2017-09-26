@@ -4,7 +4,9 @@ window.onload = function () {
     if (isMobile.phone) {
         Mobile.init();
     } else {
-        EntranceAnimation.play().then(Desktop.init);
+        // EntranceAnimation.play().then(Desktop.init);
+        EntranceAnimation.end();
+        Desktop.init();
     }
 
     Navigation.init();

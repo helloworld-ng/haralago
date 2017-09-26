@@ -213,16 +213,19 @@ var Mobile = (function () {
 })();
 var Navigation = (function(){
     function setCurrentIndex(index) {
-        var navIndex;
+        var navIndex, paginationIndex;
         var services = [1, 2, 3, 4];
         var about = [5, 6];
     
         if (services.indexOf(index) > -1) {
             navIndex = 1;
+            paginationIndex = 1;
         } else if (about.indexOf(index) > -1) {
             navIndex = 5;
+            paginationIndex = 2;
         } else {
             navIndex = index;
+            paginationIndex = index - 4;
         }
     
         var navLink = $('.navigation__link[data-section="' + navIndex + '"]');
@@ -230,12 +233,15 @@ var Navigation = (function(){
             $('.navigation__link').removeClass('navigation__link--active');
             navLink.addClass('navigation__link--active');
         }
-    
-        // Move pagination scrubber
-        var scrubber_distance = (index - (index > 3 ? 3 : 2)) * 14;
-        $('.pagination__scrubber').css('transform', 'translateY(' + scrubber_distance + 'px)');
+        
+        movePaginationScrubber(paginationIndex);
     }
     
+    function movePaginationScrubber(index) {
+        var scrubber_distance = index * 14;
+        $('.pagination__scrubber').css('transform', 'translateY(' + scrubber_distance + 'px)');
+    }
+
     function setupMobile() {
         $('.header-navigation-open').click(function (e) {
             e.preventDefault();
@@ -250,19 +256,21 @@ var Navigation = (function(){
     }
 
     function setupMobileNavigationClicks() {
-        $('.navigation__link').on('click', function (e) {
+        $('a').on('click', function (e) {
             e.preventDefault();
             $('.navigation').removeClass('navigation--visible');
             var id = $(this).attr('href');
             var isSubscribeLink = $(this).attr('data-subscribe') != undefined;
             
-            if (id) {
+            if ($(id).offset()) {
                 var pos = $(id).offset().top - 100;
                 $('body, html').animate({
                     scrollTop: pos
                 }, function(){
                     if (isSubscribeLink) NewsletterSubscribe.show();
                 });
+            } else if (isSubscribeLink) {
+                NewsletterSubscribe.show();
             }
         });
     }
@@ -602,7 +610,9 @@ window.onload = function () {
     if (isMobile.phone) {
         Mobile.init();
     } else {
-        EntranceAnimation.play().then(Desktop.init);
+        // EntranceAnimation.play().then(Desktop.init);
+        EntranceAnimation.end();
+        Desktop.init();
     }
 
     Navigation.init();
