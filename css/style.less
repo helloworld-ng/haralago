@@ -106,6 +106,7 @@ button.button-as-link {
 }
 
 @mobile: ~"all and (min-width: 320px) and (max-width: 767px)";
+@small: ~"all and (max-width: 570px)";
 @notmobile: ~"all and (min-width: 767px)";
 @tablet: ~"all and (min-width: 320px) and (max-width: 959px)";
 @custom: ~"all and (min-width: 320px) and (max-width: 1024px)";
@@ -428,6 +429,9 @@ body {
                 color: #b1dfd8;
                 border-bottom: 0;
             }
+        }
+        @media @small {
+            padding: 5px 0;
         }
     }
     .header--green &&,
@@ -1653,20 +1657,25 @@ body {
     z-index: 999;
     &__container {        
         position: absolute;
-        width: 400px;
+        width: 320px;
         padding: 50px;
         border-radius: 3px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 70px 100px rgba(0, 0, 0, 0.04);
         background: white;
-        top: 50%;
+        top: 55%;
         left: 0;
         right: 0;
         margin: auto;
         transform: translateY(-50%);
         -webkit-transform: translateY(-50%);
         @media @mobile {
-            width: 300px;
+            width: 80%;
             padding: 40px;
+            box-shadow: 0 70px 100px rgba(0, 0, 0, 0.03);
+            top: 58%;
+        }
+        @media @small {
+            width: 84%;
         }
     }
     &__close {
@@ -1676,7 +1685,7 @@ body {
         padding: 20px;
     }
     &__intro {
-        color: @gray;
+        color: #a8a8a8;
         font-size: 1em;
         margin: 20px 0 40px;
         line-height: 1.5em;
@@ -1714,7 +1723,7 @@ body {
         }
     }
     &__button {
-        background: @green;
+        background: #38b8a3;
         border: none;
         border-radius: 3px;
         height: 45px;
@@ -1723,7 +1732,7 @@ body {
         text-align: center;
         color: white;
         font-family: inherit;
-        margin-top: 30px;
+        margin-top: 45px;
         font-size: 1em;
         cursor: pointer;
         outline: none;
@@ -1731,7 +1740,7 @@ body {
             outline: none;
         }
         &:disabled {
-            opacity: 0.5;
+            opacity: 0.3;
             pointer-events: none;
         }
     }
