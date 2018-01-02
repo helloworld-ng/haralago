@@ -5,8 +5,10 @@ var AboutSlideShow = (function(){
     var loop = null;
 
     function hide(slide) {
+        slide.addClass('about-slideshow__image--exiting');
         setTimeout(function(){
             slide.removeClass('about-slideshow__image--active');
+            slide.removeClass('about-slideshow__image--exiting');
         }, 1000);
     }
 
