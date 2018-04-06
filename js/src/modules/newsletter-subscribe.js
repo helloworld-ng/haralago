@@ -12,10 +12,10 @@ var NewsletterSubscribe = (function(){
             formData.name = $('#subscribe-name').val();
             formData.email = $('#subscribe-email').val();
 
-            if (!subscribeButtonIsActive && form.name && form.email) {
+            if (!subscribeButtonIsActive && formData.name && formData.email) {
                 subscribeButtonIsActive = true;
                 subscribeButton.removeAttr('disabled');
-            } else if (subscribeButtonIsActive && !form.name && !form.email) {
+            } else if (subscribeButtonIsActive && !formData.name && !formData.email) {
                 subscribeButtonIsActive = false;
                 subscribeButton.attr('disabled', true);
             }
