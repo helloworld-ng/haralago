@@ -1,6 +1,6 @@
 var NewsletterSubscribe = (function(){
     var openButtons, closeButton, subscribeButton, backgrounds, modal, form;
-    var form = {
+    var formData = {
         name: null,
         email: null
     }
@@ -9,8 +9,8 @@ var NewsletterSubscribe = (function(){
         var subscribeButtonIsActive = false;
 
         form.find('input').on('input', function(){
-            form.name = $('#subscribe-name').val();
-            form.email = $('#subscribe-email').val();
+            formData.name = $('#subscribe-name').val();
+            formData.email = $('#subscribe-email').val();
 
             if (!subscribeButtonIsActive && form.name && form.email) {
                 subscribeButtonIsActive = true;
@@ -37,11 +37,11 @@ var NewsletterSubscribe = (function(){
                     'Content-Type': 'application/json'
                 }),
                 body: JSON.stringify({
-                    email_address: form.email,
+                    email_address: formData.email,
                     status: "pending",
                     merge_fields: {
-                        FNAME: form.name.split(" ")[0],
-                        LNAME: form.name.split(" ")[1]
+                        FNAME: formData.name.split(" ")[0],
+                        LNAME: formData.name.split(" ")[1]
                     }
                 })
             });
